@@ -157,82 +157,10 @@ code, pre, .stCode {
     min-width: 380px !important;
 }
 
-/* Sidebar Expander Button: Convert ">>" into "⚙️ Configuration" Button */
-[data-testid="collapsedControl"] {
-    display: block !important;
-    visibility: visible !important;
-}
-
-[data-testid="collapsedControl"] button {
-    background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%) !important;
-    color: #fbbf24 !important;
-    border: 1px solid rgba(245, 158, 11, 0.45) !important;
-    border-radius: 6px !important;
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.6), 0 0 10px rgba(245, 158, 11, 0.15) !important;
-    padding: 6px 14px !important;
-    min-height: 34px !important;
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    gap: 6px !important;
-    cursor: pointer !important;
-    transition: all 0.2s ease-in-out !important;
-}
-
-[data-testid="collapsedControl"] button:hover {
-    background: linear-gradient(180deg, #2a374f 0%, #172033 100%) !important;
-    border-color: #fbbf24 !important;
-    color: #ffffff !important;
-    box-shadow: 0 4px 18px rgba(245, 158, 11, 0.3) !important;
-}
-
-/* Hide the default ">>" SVG arrow icon */
-[data-testid="collapsedControl"] button svg {
+/* Hide only the Deploy button */
+.stDeployButton {
     display: none !important;
-}
-
-/* Display "Configuration" text instead of ">>" */
-[data-testid="collapsedControl"] button::after {
-    content: "⚙️ Configuration" !important;
-    font-size: 0.82rem !important;
-    font-weight: 700 !important;
-    letter-spacing: 0.3px !important;
-    color: #f8fafc !important;
-    font-family: 'Plus Jakarta Sans', sans-serif !important;
-    white-space: nowrap !important;
-}
-
-/* Sidebar Collapser Button (Inside Expanded Sidebar Header) */
-[data-testid="stSidebarCollapseButton"] button {
-    background: rgba(255, 255, 255, 0.05) !important;
-    border: 1px solid rgba(255, 255, 255, 0.15) !important;
-    border-radius: 6px !important;
-    padding: 4px 10px !important;
-    display: inline-flex !important;
-    align-items: center !important;
-    transition: all 0.15s ease !important;
-}
-
-[data-testid="stSidebarCollapseButton"] button svg {
-    display: none !important;
-}
-
-[data-testid="stSidebarCollapseButton"] button::after {
-    content: "◀ Hide" !important;
-    font-size: 0.78rem !important;
-    font-weight: 600 !important;
-    color: #94a3b8 !important;
-    font-family: 'Plus Jakarta Sans', sans-serif !important;
-    white-space: nowrap !important;
-}
-
-[data-testid="stSidebarCollapseButton"] button:hover {
-    background: rgba(245, 158, 11, 0.15) !important;
-    border-color: #fbbf24 !important;
-}
-
-[data-testid="stSidebarCollapseButton"] button:hover::after {
-    color: #fbbf24 !important;
+    visibility: hidden !important;
 }
 
 [data-testid="stSidebarContent"] {

@@ -113,6 +113,7 @@ cfg = st.session_state.config
 
 # ================= SIDEBAR: ENGINE ARSENAL =================
 with st.sidebar:
+    st.html('<div style="text-align:center;padding:8px 0 12px 0;border-bottom:1px solid rgba(245,158,11,0.25);margin-bottom:14px;"><span style="font-family:Cinzel,serif;font-size:1.1rem;font-weight:800;letter-spacing:1.5px;color:#fbbf24;">⚙️ CONFIGURATION</span></div>')
     st.markdown("### 👹 BoogieMan Arsenal")
     st.caption("Zero-leak configuration. Each engine maintains its own parameters.")
 
