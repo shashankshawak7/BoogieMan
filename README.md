@@ -24,7 +24,7 @@
 
 ## Example Roast
 
-![BoogeyMan_Roast](BoogieMan_Roast.jpeg)
+![BoogeyMan_Roast](BoogieMan_Roast.jpg)
 
 [🚀 Quickstart](#-quickstart--installation) • 
 [📂 Architecture & Codebase Map](#-codebase-architecture--what-contains-what-and-why) • 
