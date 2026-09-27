@@ -1,0 +1,45 @@
+{
+  "active_provider": "LM Studio (Local)",
+  "providers": {
+    "LM Studio (Local)": {
+      "base_url": "http://127.0.0.1:1234/v1",
+      "model": "gemma-4-e2b-it",
+      "api_key": ""
+    },
+    "Ollama (Local)": {
+      "base_url": "http://127.0.0.1:11434/v1",
+      "model": "llama3",
+      "api_key": ""
+    },
+    "Google Gemini": {
+      "api_key": "",
+      "model": "gemini-2.5-flash"
+    },
+    "Groq": {
+      "api_key": "",
+      "base_url": "https://api.groq.com/openai/v1",
+      "model": "llama-3.3-70b-versatile"
+    },
+    "OpenAI": {
+      "api_key": "",
+      "base_url": "https://api.openai.com/v1",
+      "model": "gpt-4o-mini"
+    },
+    "Anthropic Claude": {
+      "api_key": "",
+      "model": "claude-3-5-sonnet-20241022"
+    },
+    "Azure OpenAI": {
+      "api_key": "",
+      "endpoint": "",
+      "deployment": "gpt-4o",
+      "api_version": "2024-02-15-preview"
+    },
+    "Custom OpenAI-Compatible": {
+      "base_url": "http://127.0.0.1:8000/v1",
+      "model": "default",
+      "api_key": ""
+    }
+  },
+  "temperature": 0.7
+}

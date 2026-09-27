@@ -121,24 +121,24 @@ pip install -r requirements.txt
 
 ### 3. Launch the Web Server
 ```bash
-python -m streamlit run app.py
+python -m streamlit run src/app.py
 ```
 Open your browser to: **`http://localhost:8501`**
 
 ### 4. Or Run the Headless Terminal CLI
 ```bash
 # Roast a text idea
-python boogie.py --idea "Building a distributed microservice for user signups"
+python src/boogie.py --idea "Building a distributed microservice for user signups"
 
 # Interrogate an RFP or Roadmap file
-python boogie.py --rfp path/to/proposal.pdf
-python boogie.py --roadmap path/to/q3_roadmap.xlsx
+python src/boogie.py --rfp path/to/proposal.pdf
+python src/boogie.py --roadmap path/to/q3_roadmap.xlsx
 
 # Roast uncommitted git changes
-python boogie.py --git-diff
+python src/boogie.py --git-diff
 
 # Audit a public or private GitHub PR
-python boogie.py --pr https://github.com/organization/repo/pull/42
+python src/boogie.py --pr https://github.com/organization/repo/pull/42
 ```
 
 ---
