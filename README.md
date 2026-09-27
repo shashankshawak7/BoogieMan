@@ -18,6 +18,13 @@
 *Ruthlessly dismantling bloated architectures, resume-driven frameworks, speculative abstractions, and enterprise buzzwords.*
 
 ---
+## why I built it 
+
+![BoogeyMan](Boogieman.jpeg)
+
+## Example Roast
+
+![BoogeyMan_Roast](Boogieman_Roast.jpeg)
 
 [🚀 Quickstart](#-quickstart--installation) • 
 [📂 Architecture & Codebase Map](#-codebase-architecture--what-contains-what-and-why) • 
