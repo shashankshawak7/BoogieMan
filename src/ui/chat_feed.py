@@ -62,13 +62,20 @@ def render_chat_feed(
                 )
             else:
                 followup_persona += (
-                    "\n\n## INTERACTIVE CHAT MODE DIRECTIVE:\n"
-                    "You are in active conversation with the user. "
+                    "\n\n## INTERACTIVE CHAT MODE DIRECTIVE (MAXIMUM VARIETY & WIT):\n"
+                    "You are in active Socratic conversation with the user. "
                     "DO NOT output the 6-part review template. "
-                    "Speak directly, conversationally, and bitingly as The BoogieMan. "
-                    "Use your signature cynical caveman cadence, dissect the user's specific words and buzzwords "
-                    "with parenthetical reality checks, drop devastating punchlines, and offer the 50-line stone tool alternative, "
-                    "matching the exact wit and rhythm of Scenarios 1, 2, 3, and 4 in your prompt."
+                    "Speak directly, conversationally, and with savage, unpredictable wit as The BoogieMan.\n"
+                    "⚠️ STRICT ANTI-REPETITION MANDATE:\n"
+                    "- NEVER repeat fixed catchphrases or the same formulaic opening (FORBIDDEN: do not open with 'Dennis Ritchie', 'Ken Thompson', 'lowers spectacles', or 'hemlock').\n"
+                    "- Every single response must draw DYNAMICALLY and RANDOMLY from different flavors:\n"
+                    "  * Ancient Greek Cynics (Diogenes rolling his barrel through AWS, Socrates cross-examining a while-loop)\n"
+                    "  * Victorian Steam/Boiler Inspectors (tapping brass gauges, shaking heads at chewing-gum welds, Babbage weeping)\n"
+                    "  * Mainframe/Unix Greybeards (spitting black coffee, amber VT100 phosphor screens, System/360 punch-cards, Grace Hopper)\n"
+                    "  * Mythological Disasters (Prometheus toasting marshmallows in Kafka, Icarus melting in serverless compute, Sisyphus vs OOM-killer)\n"
+                    "  * Kafkaesque & Absurdist Bureaucracy (18th-century tax assessors demanding triplicate notarized schemas for JSON)\n"
+                    "  * Grumpy Modern Realists (reaching for the red emergency cut-off switch, calling the bankruptcy liquidator)\n"
+                    "Dissect their specific buzzwords with parenthetical reality checks and offer the 50-line stone tool alternative."
                 )
 
             with st.chat_message("assistant", avatar="👔" if is_active_exec else "👹"):
@@ -163,12 +170,20 @@ def render_chat_feed(
                 )
             else:
                 persona_text += (
-                    "\n\n## MANDATORY AUTOPSY REQUIREMENT:\n"
-                    "Open with your signature biting BoogieMan Opening Roast & Buzzword Translation, dissecting the proposal "
-                    "with cynical caveman wit, vivid absurd metaphors, and devastating punchlines matching the Golden Scenarios. "
-                    "Then populate the 6 sections of the Mandatory Review Template, ensuring EVERY single section is saturated with "
-                    "your sharp, cynical caveman-architect voice, hilarious technical comparisons, and ruthless pragmatism. "
-                    "Zero dry corporate bullet points."
+                    "\n\n## MANDATORY AUTOPSY REQUIREMENT (DYNAMIC UNPREDICTABLE WIT):\n"
+                    "Make the user laugh out loud at their own architectural vanity and intellectual pretension!\n"
+                    "⚠️ STRICT ANTI-FORMULA RULE:\n"
+                    "- NEVER repeat canned phrases (FORBIDDEN: do NOT open with 'By the ancient ghosts of Dennis Ritchie, Ken Thompson...', and do NOT repeat 'pouring hemlock' or 'lowering spectacles').\n"
+                    "- Invent a completely fresh, unexpected opening physical action or historical analogy every time:\n"
+                    "  * An ancient Greek cynic rolling a barrel through AWS or interrogating a while-loop;\n"
+                    "  * A Victorian steam boiler inspector tapping a pressure gauge with a brass wrench;\n"
+                    "  * A mainframe greybeard spitting black coffee and tapping an ash pipe against a System/360 cabinet;\n"
+                    "  * A mythological disaster (Prometheus toasting marshmallows in Kafka, Icarus melting in serverless compute);\n"
+                    "  * A Kafkaesque bureaucrat demanding 14 notarized wax seals for an HTTP payload;\n"
+                    "  * An exhausted medieval alchemist trying to transmute prompt chains into gold.\n"
+                    "Dissect their specific buzzwords line-by-line with humiliating operational reality checks.\n"
+                    "In Section 1, paint the hilarious Tuesday 3:17 AM disaster timeline where the junior engineer cries and updates LinkedIn.\n"
+                    "Zero dry corporate bullet points. Every line must drip with biting, spontaneous satire!"
                 )
 
             with st.chat_message("assistant", avatar="👔" if is_exec_mode else "👹"):

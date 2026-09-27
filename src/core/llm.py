@@ -53,7 +53,7 @@ def stream_llm(
             "generationConfig": {"temperature": temp}
         }
 
-        with httpx.Client(timeout=180.0) as client:
+        with httpx.Client(timeout=600.0) as client:
             with client.stream("POST", url, json=payload) as resp:
                 if resp.status_code != 200:
                     err_msg = resp.read().decode("utf-8", errors="replace")
@@ -85,7 +85,7 @@ def stream_llm(
         headers = {"api-key": api_key, "Content-Type": "application/json"}
         payload = {"messages": messages, "temperature": temp, "stream": True}
 
-        with httpx.Client(timeout=180.0) as client:
+        with httpx.Client(timeout=600.0) as client:
             with client.stream("POST", url, json=payload, headers=headers) as resp:
                 if resp.status_code != 200:
                     err_msg = resp.read().decode("utf-8", errors="replace")
@@ -124,7 +124,7 @@ def stream_llm(
             "stream": True
         }
 
-        with httpx.Client(timeout=180.0) as client:
+        with httpx.Client(timeout=600.0) as client:
             with client.stream("POST", url, json=payload, headers=headers) as resp:
                 if resp.status_code != 200:
                     err_msg = resp.read().decode("utf-8", errors="replace")
@@ -158,7 +158,7 @@ def stream_llm(
         headers = {"Authorization": f"Bearer {api_key}", "Content-Type": "application/json"}
         payload = {"model": model, "messages": messages, "temperature": temp, "stream": True}
 
-        with httpx.Client(timeout=360.0) as client:
+        with httpx.Client(timeout=600.0) as client:
             with client.stream("POST", url, json=payload, headers=headers) as resp:
                 if resp.status_code != 200:
                     err_msg = resp.read().decode("utf-8", errors="replace")

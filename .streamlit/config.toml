@@ -11,6 +11,11 @@ headless = true
 enableCORS = false
 enableXsrfProtection = false
 enableStaticServing = false
+maxUploadSize = 50
+maxMessageSize = 200
 
 [client]
 toolbarMode = "minimal"
+
+[browser]
+gatherUsageStats = false

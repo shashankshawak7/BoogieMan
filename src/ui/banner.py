@@ -23,26 +23,33 @@ def render_banner(active_provider: str, model_name: str, is_live: bool, status_d
         status_desc: Brief description of connection status or error message.
     """
     if is_live:
+        status_dot = '<span class="status-dot dot-live"></span>'
         badge_html = (
-            f'<span class="badge-pill badge-live">● {active_provider} LIVE</span> '
-            f'<span class="badge-pill badge-tech">⚡ {model_name}</span>'
+            f'<div class="banner-status-row">'
+            f'<span class="banner-engine-badge live">{status_dot}{active_provider}</span>'
+            f'<span class="banner-model-badge">⚡ {model_name}</span>'
+            f'</div>'
         )
     else:
+        status_dot = '<span class="status-dot dot-off"></span>'
         badge_html = (
-            f'<span class="badge-pill badge-unreachable">○ {active_provider} OFFLINE</span> '
-            f'<span class="badge-pill badge-tech">⚠️ {status_desc}</span>'
+            f'<div class="banner-status-row">'
+            f'<span class="banner-engine-badge off">{status_dot}{active_provider}</span>'
+            f'<span class="banner-model-badge">⚠️ {status_desc}</span>'
+            f'</div>'
         )
 
     banner_html = (
         '<div class="boogieman-banner">'
-        '<div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">'
-        '<div>'
-        '<div class="boogieman-crest">👹 ARCHITECTURAL TRIBUNAL &bull; TECH DEBT REAPER</div>'
+        '<div class="banner-top-row">'
+        '<span class="boogieman-crest">👹 ARCHITECTURAL TRIBUNAL</span>'
+        '<span class="boogieman-author">BY SHASHANK SHAWAK</span>'
+        '</div>'
+        '<div class="banner-main-row">'
         '<h1 class="boogieman-title">THE BOOGIEMAN</h1>'
-        '<p class="boogieman-tagline">"Ruthlessly dismantling bloated architectures, premature abstractions, and buzzword traps."</p>'
+        f'{badge_html}'
         '</div>'
-        f'<div style="display: flex; align-items: center; gap: 8px;">{badge_html}</div>'
-        '</div>'
+        '<p class="boogieman-tagline">Ruthlessly dismantling bloated architectures, premature abstractions, and buzzword traps.</p>'
         '</div>'
     )
     st.html(banner_html)

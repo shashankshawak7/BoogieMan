@@ -2,56 +2,104 @@
 
 <div align="center">
 
+[![Architect](https://img.shields.io/badge/Architect-Shashank_Shawak_(Consultant_Architect)-0ea5e9?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/shashankshawak/)
 [![Python Version](https://img.shields.io/badge/Python-3.10%2B-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://python.org)
-[![Streamlit App](https://img.shields.io/badge/Frontend-Streamlit-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)](https://streamlit.io)
+[![Streamlit App](https://img.shields.io/badge/Frontend-Streamlit_v1.40%2B-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)](https://streamlit.io)
 [![Zero Bloat](https://img.shields.io/badge/Dependencies-Zero--Bloat_REST-10B981?style=for-the-badge&logo=fastapi&logoColor=white)](#)
 [![Offline Local AI](https://img.shields.io/badge/Local_AI-LM_Studio_%7C_Ollama-F59E0B?style=for-the-badge&logo=ollama&logoColor=white)](#)
 [![PDF Generation](https://img.shields.io/badge/Exports-Binary_PDF_%26_Markdown-6366F1?style=for-the-badge&logo=adobeacrobatreader&logoColor=white)](#)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
 
 <br/>
 
-**"Code is a liability, not an asset. Debts must be paid."**
+### *"Code is a liability, not an asset. Debts must be paid."*
 
-*An ancient mythic phantom lurking in the shadows of over-engineering.*  
-*Dismantling bloated architectures, resume-driven frameworks, speculative abstractions, and enterprise buzzwords.*
+**An ancient Socratic inquisitor and haunted legacy architect lurking in the shadows of over-engineering.**  
+*Ruthlessly dismantling bloated architectures, resume-driven frameworks, speculative abstractions, and enterprise buzzwords.*
 
 ---
 
 [🚀 Quickstart](#-quickstart--installation) • 
-[🎯 Two Ways to Use](#-two-operational-modes) • 
-[⚙️ AI Setup](#%EF%B8%8F-ai-engine-configuration) • 
-[🔍 Features & Ingestion](#-target-contract-ingestion) • 
+[📂 Architecture & Codebase Map](#-codebase-architecture--what-contains-what-and-why) • 
+[🎯 Two Operational Modes](#-two-operational-modes) • 
+[⚙️ AI Engines & Live Probing](#%EF%B8%8F-ai-engine-configuration--socket-probing) • 
+[🔍 Target Contract Ingestion](#-target-contract-ingestion) • 
 [👔 Dual Tone Modes](#-dual-delivery-modes) • 
-[💬 Multi-Turn Chat & Synthesis](#-multi-turn-interrogation--discussion-synthesis) • 
 [⬇️ PDF & Markdown Exports](#%EF%B8%8F-export--reporting-suite) • 
-[📖 Example Roasts](#-real-world-examples)
+[👨‍💻 Architect](#-architect--maintainer)
 
 </div>
 
 ---
 
-## 📖 The Folkloric Persona & Philosophy
+## 📖 The Socratic & Legacy Philosophy
 
-In modern software development, teams build colossal towers of complexity—twenty microservices to do what one SQLite database can do, distributed message brokers for three daily requests, and AI agent swarms inside trench coats.
+In modern software development, teams build colossal towers of complexity—twenty microservices to do what one SQLite database can do, distributed Kafka brokers for three daily requests, and AI agent swarms inside trench coats.
 
-**The BoogieMan** is the ancient folkloric reckoning hiding under the desks of resume-driven developers and buzzword architects. He is the hyper-pragmatic, battle-hardened Principal Architect who refuses to build things that do not need to exist.
+**The BoogieMan** is the ancient reckoning hiding under the desks of resume-driven developers and buzzword architects. He speaks as an unyielding blend of **Socratic Inquisitor, Diogenes of the Cloud, and Haunted Legacy Unix/Mainframe Elder** who survived the dark ages of CORBA, SOAP XML, and J2EE Enterprise JavaBeans.
 
-### The Pre-Acceptance Gauntlet
+> [!NOTE]
+> *"A 40-year-old COBOL program running on an IBM mainframe written by an engineer who retired in 1984 is currently processing the entire global banking system without breaking a sweat, while your distributed event-driven multi-agent framework needs $8,000/month in cloud credits just to extract a date from a PDF."*
+
+### ⚔️ The Pre-Acceptance Gauntlet
 Before evaluating any implementation, line of code, or architecture proposal, The BoogieMan runs it through five lethal tests:
 1. **The Delete Test:** Can this system be deleted entirely without paying customers leaving?
-2. **The Framework Test:** Does the framework, language standard library, or operating system already do this natively?
+2. **The Framework Test:** Does the language standard library, runtime, or operating system already do this natively?
 3. **The Database Test:** Can a single SQL query, index, constraint, or view replace 500 lines of application loops?
-4. **The Cloud / OS Test:** Can a cron job, a shell command (`grep`, `curl`, `awk`), or a cloud primitive handle this?
-5. **The 3:00 AM Test:** Will a sleep-deprived junior on-call engineer be able to debug this five years from now when the author has fled the company?
+4. **The Cloud / OS Test:** Can a simple cron job, shell pipe (`grep`, `curl`, `awk`), or cloud primitive handle this?
+5. **The 3:17 AM Test:** Will a sleep-deprived junior on-call engineer be able to debug this five years from now when the author has fled the company?
 
-### The Mandatory 6-Part Evaluation Template
-Every evaluation—whether delivered as a folkloric roast or a formal boardroom advisory memo—strictly adheres to this rigorous engineering template:
-1. **Executive Summary & Reality Check:** Stripping away buzzwords to define the core proposal.
-2. **Ruthless Elimination:** Specific components, endpoints, microservices, and layers to delete or merge immediately.
-3. **Offloading & Delegation:** Offloading logic to SQL, standard libraries, or static configuration.
-4. **Violation Analysis:** Auditing YAGNI, KISS, DRY, and Resume-Driven Development (RDD) sins.
-5. **Financial & Operational Impact:** Estimating maintenance burden, technical debt accumulation, and on-call risk.
-6. **Action Plan & Final Recommendation:** Ordered refactoring roadmap and definitive verdict (**REJECT**, **DESTRUCTIVE REFACTOR**, or **ACCEPT WITH CAVEATS**).
+---
+
+## 📂 Codebase Architecture — What Contains What and Why
+
+The codebase follows strict **Single Responsibility Principles (SRP)**, separating configuration, prompt engineering, UI rendering, and business services into cleanly partitioned domains:
+
+```
+project_AI/
+├── config/                     # System configuration files (JSON)
+│   └── boogie_config.json      # Provider credentials & endpoint settings (isolated per engine)
+├── prompt/                     # Pure prompt engineering (Markdown - Single Source of Truth)
+│   ├── boogieMan.md            # The satirical Socratic/Legacy roaster persona & autopsy templates
+│   └── boardroom.md            # C-suite executive transmutation directives ({target} & {findings})
+├── css/                        # Design system & stylesheets
+│   └── style.css               # Dark-mode glassmorphic theme, status badges & sidebar styles
+├── static/                     # Static artifacts directory (strictly outside src/)
+│   └── *.pdf, *.md, *.txt      # Persisted downloads served cleanly without framework collision
+├── chats/                      # Local session storage
+│   └── *.json                  # Persisted interrogation history (ChatGPT-style multi-turn sessions)
+├── roasts/                     # Immutable audit records
+│   └── verdict_*.md            # Timestamped markdown autopsies generated by CLI and web app
+├── src/                        # Root application coordinators
+│   ├── app.py                  # High-level Streamlit frontend orchestrator (~180 lines)
+│   ├── boogie.py               # Zero-bloat terminal CLI runner for local/remote audits
+│   ├── engine.py               # Facade aggregating all core, service, and UI packages
+│   │
+│   ├── core/                   # Core backend infrastructure modules
+│   │   ├── config.py           # Catalog definitions, path resolution, and config loader
+│   │   ├── extractors.py       # Multi-format parsers (PDF, DOCX, XLSX, TXT) & Git diff engine
+│   │   ├── llm.py              # Universal streaming token generator (OpenAI, Gemini, Claude, etc.)
+│   │   ├── prober.py           # Live socket health prober with in-memory TTL caching
+│   │   └── storage.py          # Chat session JSON persistence (list, save, load, delete)
+│   │
+│   ├── services/               # Specialized business services
+│   │   ├── export_service.py   # Isolated report export toolbar (@st.fragment protected)
+│   │   ├── pdf_generator.py    # Multi-page A4 PDF builder (FPDF2 with Unicode sanitization)
+│   │   └── transmute.py        # Hydrates boardroom.md template directly from markdown
+│   │
+│   └── ui/                     # Modular Streamlit UI components
+│       ├── action_dock.py      # Bottom executive dock (Transmute, Tone, Stop/New, Exports)
+│       ├── banner.py           # Hero banner with real-time LIVE/OFFLINE connection badges
+│       ├── chat_feed.py        # Scrollable message feed with streaming assistant & stop buttons
+│       ├── contract_form.py    # Initial intake tabs (Pitch, RFP, Roadmap, BA, Code, Diff) & Zero-UI
+│       └── sidebar.py          # ChatGPT-style chat navigation and collapsible AI Engine settings
+```
+
+### 🧠 Why This Structure Matters
+* **No Code-Prompt Entanglement:** Zero prompt strings are hardcoded inside Python code. Prompts live in `prompt/*.md` and are hydrated via runtime placeholders (`{target}`, `{findings}`).
+* **Static Assets Outside Source (`static/`):** Streamlit static files are stored in `project_AI/static` to prevent script reload loops and asset duplication.
+* **Component-Level Isolation:** UI modules in `src/ui/` do not handle raw HTTP or database IO; they delegate entirely to `src/core/` and `src/services/`.
+* **Zero Race Conditions:** Document downloads in `src/services/export_service.py` are isolated inside `@st.fragment`, preventing full-page reruns when clicking download buttons.
 
 ---
 
@@ -64,29 +112,36 @@ You can run The BoogieMan in two distinct workflows:
 │                        THE BOOGIEMAN ECOSYSTEM                         │
 ├───────────────────────────────────┬────────────────────────────────────┤
 │   MODE 1: ZERO-UI IN-IDE AGENT    │    MODE 2: INTERACTIVE PLATFORM    │
-│   • Cursor (.cursorrules)         │    • Full Streamlit Web Server     │
-│   • GitHub Copilot (instructions) │    • Multi-Format File Extractor   │
-│   • Claude Code / Antigravity     │    • Live PR Diff Ingestion        │
+│   • VS Code (.github/agents/)    │    • Full Streamlit Web Server     │
+│   • Cursor (.cursor/rules/)      │    • Multi-Format File Extractor   │
+│   • Antigravity (.agents/rules/) │    • Live PR Diff Ingestion        │
 │   • 1-Click Copy-Paste Setup      │    • Multi-Turn Chat & PDF Exports │
 └───────────────────────────────────┴────────────────────────────────────┘
 ```
 
-### Mode 1: Zero-UI In-IDE Agent (Cursor, Copilot, Antigravity)
-Drop The BoogieMan's brain directly into your repository. Your AI coding assistants will immediately adopt his ruthless architectural discipline:
+### Mode 1: Zero-UI In-IDE Agent (VS Code, Cursor, Antigravity)
+Drop The BoogieMan's brain directly into your repository. Your AI coding assistants will immediately adopt his ruthless architectural discipline.
 
-* **For Cursor:** Copy [boogieMan.md](boogieMan.md) to `.cursorrules` in your project root:
-  ```bash
-  cp boogieMan.md /path/to/your/project/.cursorrules
-  ```
-* **For GitHub Copilot:** Place it in `.github/copilot-instructions.md`:
-  ```bash
-  mkdir -p /path/to/your/project/.github
-  cp boogieMan.md /path/to/your/project/.github/copilot-instructions.md
-  ```
-* **For Claude Code / Antigravity / Gemini:**
-  Include [boogieMan.md](boogieMan.md) in your system prompt or workspace `GEMINI.md` / `CLAUDE.md`.
+Each standalone agent file is **self-contained** — no external dependencies, no `prompt/` folder needed:
 
-*(Tip: In the Streamlit UI, the **"BoogieMan Integration"** tab provides 1-click installer buttons!)*
+| IDE | Source File (in this repo) | Copy To (in your project) |
+| :--- | :--- | :--- |
+| **VS Code / Copilot** | `.github/agents/boogieman.agent.md` | `<your-repo>/.github/agents/` |
+| **Cursor** | `.cursor/rules/boogieman.mdc` | `<your-repo>/.cursor/rules/` |
+| **Antigravity** | `.agents/rules/boogieman.md` | `<your-repo>/.agents/rules/` |
+
+```bash
+# Example: Copy VS Code agent into your project
+cp .github/agents/boogieman.agent.md /path/to/your/project/.github/agents/
+
+# Example: Copy Cursor rule into your project
+cp .cursor/rules/boogieman.mdc /path/to/your/project/.cursor/rules/
+
+# Example: Copy Antigravity rule into your project
+cp .agents/rules/boogieman.md /path/to/your/project/.agents/rules/
+```
+
+> See [⚡ Zero-UI Standalone Agents](#-zero-ui-standalone-agents-vs-code-cursor--antigravity) below for global install paths and detailed usage.
 
 ---
 
@@ -100,7 +155,7 @@ Run the dedicated web portal with live socket probing, document parsers, multi-t
 
 ### 1. Clone & Setup Virtual Environment
 ```bash
-git clone https://github.com/your-username/project_AI.git
+git clone https://github.com/shashankshawak/project_AI.git
 cd project_AI
 
 # Create virtual environment
@@ -119,7 +174,7 @@ pip install -r requirements.txt
 ```
 *Dependencies:* `streamlit`, `httpx`, `pypdf`, `python-docx`, `openpyxl`, `fpdf2`, `rich`, `python-dotenv`.
 
-### 3. Launch the Web Server
+### 3. Launch the Web Application
 ```bash
 python -m streamlit run src/app.py
 ```
@@ -127,14 +182,14 @@ Open your browser to: **`http://localhost:8501`**
 
 ### 4. Or Run the Headless Terminal CLI
 ```bash
-# Roast a text idea
-python src/boogie.py --idea "Building a distributed microservice for user signups"
+# Roast an architecture pitch
+python src/boogie.py "Building a distributed microservice for user signups"
 
-# Interrogate an RFP or Roadmap file
+# Interrogate an RFP or Roadmap document
 python src/boogie.py --rfp path/to/proposal.pdf
 python src/boogie.py --roadmap path/to/q3_roadmap.xlsx
 
-# Roast uncommitted git changes
+# Roast uncommitted git diffs in current repo
 python src/boogie.py --git-diff
 
 # Audit a public or private GitHub PR
@@ -143,24 +198,24 @@ python src/boogie.py --pr https://github.com/organization/repo/pull/42
 
 ---
 
-## ⚙️ AI Engine Configuration
+## ⚙️ AI Engine Configuration & Socket Probing
 
-The BoogieMan platform features **isolated configuration** with zero state bleeding between providers. Each engine's settings are saved independently in `.boogie_config.json`.
+The BoogieMan platform features **isolated configuration** with zero state bleeding between providers. Each engine's settings are saved independently in `config/boogie_config.json`.
 
 | Engine | Type | Default Endpoint | API Key Required? |
 | :--- | :--- | :--- | :--- |
 | **LM Studio** | Local (Offline) | `http://127.0.0.1:1234/v1` | ❌ No (Optional) |
 | **Ollama** | Local (Offline) | `http://127.0.0.1:11434` | ❌ No (Optional) |
-| **Google Gemini** | Cloud API | Native REST | ✅ Yes (Gemini API Key) |
+| **Google Gemini** | Cloud API | Native REST SSE | ✅ Yes (Gemini API Key) |
 | **OpenAI** | Cloud API | `https://api.openai.com/v1` | ✅ Yes (OpenAI API Key) |
 | **Groq** | Cloud Fast LPU | `https://api.groq.com/openai/v1` | ✅ Yes (Groq API Key) |
-| **Anthropic Claude** | Cloud API | Native REST | ✅ Yes (Anthropic API Key) |
+| **Anthropic Claude** | Cloud API | Native Messages API | ✅ Yes (Anthropic API Key) |
 | **Azure OpenAI** | Enterprise Cloud | Custom Resource URL | ✅ Yes (Azure Key + Deployment) |
 
 ### Real-Time Socket Probing: "Lock Engine" & "Check Live"
 * **Check Live (🔄):** Probes the underlying socket/endpoint (e.g. `/v1/models` for LM Studio, `/api/tags` for Ollama) and immediately reports latency and model availability with visual green/slate indicators in the sidebar.
 * **Lock Engine (💾):** Saves the selected provider and credentials as your active default.
-* **Zero UI Lag:** Probes are cached so navigating between tabs and document types occurs instantaneously with 0ms delay.
+* **Zero UI Lag:** Probes are cached with in-memory TTLs so navigating between tabs and chat turns occurs instantaneously with 0ms delay.
 
 ---
 
@@ -181,7 +236,7 @@ Upload **PDF**, **Word (.docx)**, **Excel (.xlsx)**, or Markdown documents. Expo
 Upload **Excel (.xlsx)**, **CSV**, **Word (.docx)**, or **PDF** roadmap schedules. Exposes:
 * Feature-factory delusion
 * Complete lack of technical debt amortization
-* Unrealistic timelines and speculative scaling
+* Speculative milestones for non-existent users
 
 ### 4. 📋 Business Analyst (BA) Requirements Specs (PRDs)
 Upload user stories, acceptance criteria, and workflow specs. Strips:
@@ -208,8 +263,8 @@ Toggle delivery tone effortlessly in the main dashboard:
 ┌───────────────────────────────────────┬───────────────────────────────────────┐
 │     👹 THE BOOGIEMAN (FOLKLORIC)      │      👔 EXECUTIVE ADVISORY AUDIT      │
 ├───────────────────────────────────────┼───────────────────────────────────────┤
-│ • Biting, cynical, satirical humor    │ • Polished, diplomatic C-suite prose  │
-│ • Punctures hype balloons with wit    │ • Capital efficiency & TCO metrics    │
+│ • Socratic, cynical, satirical wit    │ • Polished, diplomatic C-suite prose  │
+│ • Diogenes of the Cloud satire        │ • Capital efficiency & TCO metrics    │
 │ • Unfiltered, brutal engineering truth│ • Risk exposure & board presentation  │
 │ • "Delete this before sunrise"        │ • "Recommend decommissioning phase 1" │
 └───────────────────────────────────────┴───────────────────────────────────────┘
@@ -217,20 +272,20 @@ Toggle delivery tone effortlessly in the main dashboard:
 
 ### ⚡ 1-Click Transmutation
 Generated a satirical roast and need to present it to your CTO, VP, or Board of Directors?  
-Click **"👔 Transmute to Formal Boardroom Report"**. The system retains every single technical elimination and architectural finding while converting the prose into an objective, data-grounded C-suite advisory memo.
+Click **"👔 Transmute Boardroom"**. The system retains every single technical elimination and architectural finding while converting the prose into an objective, data-grounded C-suite advisory memo based on [prompt/boardroom.md](prompt/boardroom.md).
 
 ---
 
 ## 💬 Multi-Turn Interrogation & Discussion Synthesis
 
-The review doesn't end with a single verdict. After summoning The BoogieMan:
+The review doesn't end with a single verdict:
 
-1. **Continue the Conversation:** Use the interactive chat input at the bottom of the evaluation dossier to ask follow-up questions:
+1. **Continue the Conversation:** Use the interactive chat input at the bottom to debate the findings:
    * *"How can I replace Kafka with Postgres in this specific design?"*
    * *"What are the trade-offs if we keep the cache layer?"*
    * *"Give me the absolute simplest architecture that satisfies these 3 requirements."*
-2. **Context-Aware Responses:** The agent maintains full conversational memory and stays in your chosen persona (satirical veteran or executive consultant).
-3. **Synthesize Full Discussion:** Click **"👔 Transmute Full Discussion to Executive Report"** to consolidate the original target, initial verdict, and all subsequent Q&A into a unified, formal advisory report ready for stakeholders.
+2. **Context-Aware Responses:** The agent maintains full conversational memory in your chosen persona.
+3. **Mid-Stream Interrupt:** Every streaming assistant message includes a live **🛑 Stop** button to halt generation instantly if the verdict is already clear.
 
 ---
 
@@ -240,70 +295,93 @@ Never lose an architectural review. Built-in export tools include:
 
 * **⬇️ Export as PDF Report:** Builds an executive-grade binary PDF using `fpdf2`, featuring custom running headers, page numbering (`Page X of Y`), clean typographic hierarchy, and sanitized character encoding.
 * **⬇️ Export as Markdown (.md):** Downloads the raw markdown report for inclusion in documentation repos or PR summaries.
-* **📁 Historical Records:** Past reviews are saved to the `roasts/` directory with timestamps and can be re-downloaded at any time from the sidebar.
+* **📋 Export as Text (.txt):** Instant plain-text transcript download.
+* **📁 Historical Records:** Past reviews are saved to the `chats/` and `roasts/` directories and can be recalled or deleted with one click from the sidebar.
 
 ---
 
-## 📖 Real-World Examples
+## ⚡ Zero-UI Standalone Agents (VS Code, Cursor & Antigravity)
 
-### Example 1: Buzzword Startup Pitch (Folkloric Mode)
-
-**Input:**
-> *"We are building an AI-powered resume screening platform. We use Kafka to stream incoming resumes, a vector database with 1536-dimensional embeddings, 8 autonomous AI agents using LangChain to debate each applicant, and deploy it on Kubernetes across 3 multi-cloud regions."*
-
-**The BoogieMan's Verdict:**
-
-#### 1. Executive Summary & Reality Check
-> This is not an architecture; it is an involuntary cry for help disguised as an AWS invoice. You have built a 14-gear Rube Goldberg contraption to perform basic keyword filtering on PDF files that 99% of recruiters glance at for six seconds.
-
-#### 2. Ruthless Elimination
-* **Execute Immediately:** Delete Kafka. Delete 7 of the 8 "debating" agents. Delete multi-cloud Kubernetes.
-* **Merge:** Merge the "agent debate" into a single deterministic prompt or standard regex parser.
-* **Simplify:** Replace the vector database with PostgreSQL Full-Text Search (`tsvector`) and a `GIN` index.
-
-#### 3. Offloading & Delegation
-* **Database Offloading:** Postgres handles PDF text search in 4 milliseconds without external vector servers.
-* **OS / Stdlib:** A single background worker (`asyncio` or `Celery`) reading from a Postgres queue replaces Kafka.
-
-#### 4. Violation Analysis & Roast
-* **YAGNI Violations:** Multi-cloud Kubernetes for a platform that currently has zero paying customers.
-* **Resume-Driven Development (RDD):** LangChain "agent debates" designed to farm Twitter/LinkedIn engagement rather than deliver reliable parsing.
-
-#### 5. Financial & Operational Horror Show
-* **Monthly Token Burn:** ~$4,200/month just for agents to hallucinate arguments over candidate GPAs.
-* **Maintenance Burden:** High. At least 3 distributed failures per week when Kafka consumer groups rebalance unexpectedly.
-
-#### 6. Action Plan & Recommendation
-* **Roadmap:**
-  1. Drop Kubernetes. Deploy a single container on a managed PaaS (Fly.io, Render, AWS ECS).
-  2. Replace Kafka with a Postgres table `status = 'PENDING' SKIP LOCKED`.
-  3. Strip the 8 agents down to one deterministic evaluation call.
-* **Final Verdict:** **DESTRUCTIVE REFACTOR**
+Want The BoogieMan to ruthlessly hunt down technical debt directly inside your IDE without opening a browser?  
+**100% Zero-Dependency Standalone Agents:** Each file contains the **entirety** of The BoogieMan—full Socratic/Diogenes persona, dynamic wit rotation, comedy weapons, 6-part autopsy rubric, debate scenarios, and anti-garbage rules.
 
 ---
 
-### Example 2: Transmuted Executive Advisory Memo (Boardroom Mode)
+### 1. 💻 VS Code (GitHub Copilot Custom Agent)
+VS Code's custom agent system automatically discovers specialized assistants stored in `.github/agents/`.
 
-**The Same Verdict After 1-Click Transmutation:**
+* **📍 Local (Current Repository):**
+  Place the agent in `.github/agents/`:
+  * **File:** [`.github/agents/boogieman.agent.md`](.github/agents/boogieman.agent.md)
+  ```bash
+  mkdir -p /path/to/your/repo/.github/agents
+  cp .github/agents/boogieman.agent.md /path/to/your/repo/.github/agents/boogieman.agent.md
+  ```
+  * **How to use:** In VS Code Copilot Chat, summon the agent directly by typing **`@boogieman`** (e.g., `@boogieman roast this architecture`).
 
-#### 1. Strategic Summary & Capital Allocation
-> The proposed technical roadmap reflects premature architectural complexity that disproportionality increases Total Cost of Ownership (TCO) prior to revenue validation. The infrastructure footprint can be reduced by 85% while meeting all customer throughput requirements.
+* **🌐 Global (Across All VS Code Projects):**
+  Copy the agent content to your global user profile:
+  * **Windows:** `%APPDATA%\Code\User\prompts\boogieman.agent.md`
+  * **macOS/Linux:** `~/.config/Code/User/prompts/boogieman.agent.md`
+  * Or paste into VS Code Settings: `github.copilot.chat.customInstructions`.
 
-#### 2. Infrastructure Rationalization
-* **Decommission:** Distributed messaging queue (Kafka) and multi-region Kubernetes clusters.
-* **Consolidation:** Standardize data storage and indexing on existing enterprise PostgreSQL instances.
-* **Optimization:** Replace speculative multi-agent consensus logic with single-pass deterministic evaluation.
+---
 
-#### 3. Financial & Operational Risk
-* **Cost Amortization:** Current architecture incurs unnecessary infrastructure overhead of ~$4,200/month in compute and API consumption.
-* **SLA Risk:** High operational surface area with 5 distinct failure points across asynchronous pipelines.
+### 2. 🎯 Cursor (Cursor Agent Rule)
+Cursor natively loads project rules from `.cursor/rules/`.
 
-#### 4. Strategic Recommendation
-* **Final Verdict:** **RESTRUCTURE PRIOR TO CAPITAL EXPENDITURE**
+* **📍 Local (Current Repository):**
+  * **File:** [`.cursor/rules/boogieman.mdc`](.cursor/rules/boogieman.mdc)
+  ```bash
+  mkdir -p /path/to/your/repo/.cursor/rules
+  cp .cursor/rules/boogieman.mdc /path/to/your/repo/.cursor/rules/boogieman.mdc
+  ```
+  * **How to use:** Automatically applied during Cursor Composer / Agent audits, or referenced via `@boogieman`.
+
+* **🌐 Global (Across All Cursor Projects):**
+  Place in your global Cursor rules directory or paste into settings:
+  * **Path:** `~/.cursor/rules/boogieman.mdc`
+  * Or paste directly into **Cursor Settings > General > Rules for AI**.
+
+---
+
+### 3. 🪐 Google Antigravity (AGY Workspace Rule)
+Antigravity automatically discovers and executes workspace and global customization rules.
+
+* **📍 Local (Current Repository):**
+  * **File:** [`.agents/rules/boogieman.md`](.agents/rules/boogieman.md)
+  ```bash
+  mkdir -p /path/to/your/repo/.agents/rules
+  cp .agents/rules/boogieman.md /path/to/your/repo/.agents/rules/boogieman.md
+  ```
+  * **How to use:** Antigravity automatically activates the BoogieMan persona for all workspace audits.
+
+* **🌐 Global (Across All Workspaces):**
+  Place in the global Antigravity customizations directory:
+  * **Windows:** `C:\Users\<user>\.gemini\config\rules\boogieman.md`
+  * **macOS/Linux:** `~/.gemini/config/rules/boogieman.md`
+  ```bash
+  mkdir -p ~/.gemini/config/rules
+  cp .agents/rules/boogieman.md ~/.gemini/config/rules/boogieman.md
+  ```
+
+---
+
+## 👨‍💻 Architect & Maintainer
+
+<div align="center">
+
+### **Shashank Shawak**
+*Consultant Architect*
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/shashankshawak/)
+[![Email](https://img.shields.io/badge/Email-shashankshawak7%40gmail.com-EA4335?style=for-the-badge&logo=gmail&logoColor=white)](mailto:shashankshawak7@gmail.com)
+
+</div>
 
 ---
 
 ## 🛡️ License & Principles
 
 Released under the **MIT License**.  
-Free for individual developers, enterprise engineering teams, and anyone who wants to prevent 3:00 AM on-call disasters.
+Free for individual developers, enterprise engineering teams, and anyone who wants to prevent 3:17 AM on-call disasters.

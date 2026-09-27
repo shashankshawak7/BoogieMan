@@ -4,7 +4,7 @@ Initial Contract Submission Form & Zero-UI Setup Component.
 Renders:
 1. Target contract intake tabs (Idea pitch, Enterprise RFP, Product Roadmap, BA Spec, Source File, Git Diff).
 2. Primary trigger: "SUMMON THE BOOGIEMAN" button.
-3. Zero-UI configuration expander for Cursor (.cursorrules) and GitHub Copilot (copilot-instructions.md).
+3. Zero-UI read-only instructions for standalone agents (VS Code, Cursor, Antigravity).
 """
 
 from __future__ import annotations
@@ -12,7 +12,7 @@ from __future__ import annotations
 from pathlib import Path
 import streamlit as st
 
-from core.config import PROJECT_ROOT, get_persona
+from core.config import PROJECT_ROOT
 from core.extractors import extract_text_from_upload, fetch_remote_diff, get_git_diff
 
 
@@ -170,25 +170,47 @@ def render_contract_form(is_live: bool, active_p: str, status_desc: str) -> None
             st.rerun()
 
     # Zero-UI Integration Expander
-    with st.expander("⚡ Zero-UI Setup (Cursor & GitHub Copilot Integration)", expanded=False):
-        col1, col2 = st.columns(2)
+    with st.expander("⚡ Zero-UI Standalone Agents (VS Code, Cursor & Antigravity)", expanded=False):
+        col1, col2, col3 = st.columns(3)
+
         with col1:
-            st.markdown("#### 🎯 Cursor Setup (`.cursorrules`)")
-            if st.button("Install .cursorrules in project", key="btn_cursor_initial", use_container_width=True):
+            st.markdown("#### 💻 VS Code Agent")
+            st.caption("`.github/agents/boogieman.agent.md`")
+            _vsc_src = PROJECT_ROOT / ".github" / "agents" / "boogieman.agent.md"
+            if st.button("📥 Install VS Code Agent", key="btn_vscode_agent_install", use_container_width=True):
                 try:
-                    (PROJECT_ROOT / ".cursorrules").write_text(get_persona(), encoding="utf-8")
-                    st.success("✅ Created `.cursorrules` in project root!")
+                    _vsc_src.parent.mkdir(parents=True, exist_ok=True)
+                    content = _vsc_src.read_text(encoding="utf-8")
+                    _vsc_src.write_text(content, encoding="utf-8")
+                    st.success("✅ Verified!")
                 except Exception as e:
                     st.error(f"Failed: {e}")
-            st.code("cp prompt/boogieMan.md /path/to/repo/.cursorrules", language="bash")
+            st.code("cp .github/agents/boogieman.agent.md \\\n   <YOUR_PROJECT>/.github/agents/", language="bash")
+
         with col2:
-            st.markdown("#### 🐙 GitHub Copilot Setup (`copilot-instructions.md`)")
-            if st.button("Install .github/copilot-instructions.md", key="btn_copilot_initial", use_container_width=True):
+            st.markdown("#### 🎯 Cursor Rule")
+            st.caption("`.cursor/rules/boogieman.mdc`")
+            _cur_src = PROJECT_ROOT / ".cursor" / "rules" / "boogieman.mdc"
+            if st.button("📥 Install Cursor Rule", key="btn_cursor_rule_install", use_container_width=True):
                 try:
-                    gh_dir = PROJECT_ROOT / ".github"
-                    gh_dir.mkdir(exist_ok=True)
-                    (gh_dir / "copilot-instructions.md").write_text(get_persona(), encoding="utf-8")
-                    st.success("✅ Created `.github/copilot-instructions.md`!")
+                    _cur_src.parent.mkdir(parents=True, exist_ok=True)
+                    content = _cur_src.read_text(encoding="utf-8")
+                    _cur_src.write_text(content, encoding="utf-8")
+                    st.success("✅ Verified!")
                 except Exception as e:
                     st.error(f"Failed: {e}")
-            st.code("mkdir -p .github && cp prompt/boogieMan.md .github/copilot-instructions.md", language="bash")
+            st.code("cp .cursor/rules/boogieman.mdc \\\n   <YOUR_PROJECT>/.cursor/rules/", language="bash")
+
+        with col3:
+            st.markdown("#### 🪐 Antigravity Rule")
+            st.caption("`.agents/rules/boogieman.md`")
+            _agy_src = PROJECT_ROOT / ".agents" / "rules" / "boogieman.md"
+            if st.button("📥 Install Antigravity Rule", key="btn_antigravity_rule_install", use_container_width=True):
+                try:
+                    _agy_src.parent.mkdir(parents=True, exist_ok=True)
+                    content = _agy_src.read_text(encoding="utf-8")
+                    _agy_src.write_text(content, encoding="utf-8")
+                    st.success("✅ Verified!")
+                except Exception as e:
+                    st.error(f"Failed: {e}")
+            st.code("cp .agents/rules/boogieman.md \\\n   <YOUR_PROJECT>/.agents/rules/", language="bash")

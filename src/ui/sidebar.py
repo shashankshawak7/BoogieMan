@@ -12,7 +12,7 @@ from __future__ import annotations
 from typing import Any, Callable
 import streamlit as st
 
-from core.config import DEFAULT_CATALOG, save_config
+from core.config import DEFAULT_CATALOG, ROASTS_DIR, save_config
 from core.prober import check_connection_live
 from core.storage import delete_chat_session, list_chat_sessions, load_chat_session
 
@@ -113,17 +113,31 @@ def render_sidebar(cfg: dict[str, Any], on_new_interrogation: Callable[[], None]
                     cfg["providers"][selected_provider] = p_data
                     save_config(cfg)
                     st.session_state["probe_cache"] = {}
-                    st.success(f"Locked: {selected_provider}")
+                    st.session_state["engine_feedback"] = ("success", f"Locked: {selected_provider}")
+                    st.toast(f"Engine locked: {selected_provider}", icon="💾")
                     st.rerun()
 
             with col_test:
                 if st.button("🔌 Test Ping", use_container_width=True, key="cfg_test_btn"):
                     with st.spinner("Probing..."):
                         is_ok, msg = check_connection_live(selected_provider, p_data)
+                        st.session_state["engine_feedback"] = ("success" if is_ok else "error", msg)
                         if is_ok:
-                            st.success(msg)
+                            st.toast(f"Live & Connected: {msg}", icon="🟢")
                         else:
-                            st.error(msg)
+                            st.toast(f"Connection error: {msg}", icon="🔴")
+
+            # Clean full-width status pill below both buttons (never misaligns button row)
+            if "engine_feedback" in st.session_state:
+                fb_type, fb_msg = st.session_state["engine_feedback"]
+                bg_color = "rgba(34, 197, 94, 0.12)" if fb_type == "success" else "rgba(239, 68, 68, 0.12)"
+                border_color = "rgba(34, 197, 94, 0.35)" if fb_type == "success" else "rgba(239, 68, 68, 0.35)"
+                text_color = "#4ade80" if fb_type == "success" else "#f87171"
+                icon = "●" if fb_type == "success" else "○"
+                st.markdown(
+                    f'<div style="margin-top: 8px; margin-bottom: 4px; padding: 6px 10px; border-radius: 6px; font-size: 0.76rem; background: {bg_color}; border: 1px solid {border_color}; color: {text_color}; text-align: center; font-weight: 500;">{icon} {fb_msg}</div>',
+                    unsafe_allow_html=True
+                )
 
             st.write("")
             cfg["temperature"] = st.slider(
@@ -134,3 +148,54 @@ def render_sidebar(cfg: dict[str, Any], on_new_interrogation: Callable[[], None]
                 step=0.05,
                 key="cfg_temp_slider"
             )
+
+        # 4. Executed Records & Past Transcripts Section (Uncollapsed & Unmissable)
+        st.divider()
+        st.markdown('<div class="sidebar-chat-header">📁 Executed Records & Transcripts</div>', unsafe_allow_html=True)
+
+        # Quick download for active chat session
+        active_chat = st.session_state.get("chat_history", [])
+        if active_chat:
+            transcript_text = f"# Interrogation Transcript: {st.session_state.get('contract_target_title', 'Session')}\n\n"
+            for m in active_chat:
+                speaker = "Pitcher" if m.get("role") == "user" else ("Executive Advisor" if m.get("mode") == "executive" else "BoogieMan")
+                transcript_text += f"### {speaker}:\n{m.get('content', '')}\n\n---\n\n"
+            st.download_button(
+                label="⬇️ Download Active Transcript (.md)",
+                data=transcript_text.encode("utf-8"),
+                file_name=f"active_transcript_{st.session_state.get('current_session_id', 'live')}.md",
+                mime="text/markdown",
+                use_container_width=True,
+                key="sidebar_dl_active_transcript"
+            )
+
+        roast_files = sorted(ROASTS_DIR.glob("*.md"), reverse=True)
+        if roast_files:
+            st.caption("Saved Historical Transcripts:")
+            sel_file = st.selectbox("Select Past Record", [f.name for f in roast_files], key="cfg_sel_record")
+            if sel_file:
+                record_bytes = (ROASTS_DIR / sel_file).read_bytes()
+                st.download_button(
+                    label="⬇️ Download Saved Record (.md)",
+                    data=record_bytes,
+                    file_name=sel_file,
+                    mime="text/markdown",
+                    use_container_width=True,
+                    key=f"cfg_dl_rec_{sel_file}"
+                )
+        else:
+            st.caption("No historical records yet.")
+
+        # Footer Attribution
+        st.markdown(
+            """
+            <div style="margin-top: 28px; padding: 12px 14px; border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 8px; background: rgba(15, 23, 42, 0.6); text-align: center; font-size: 0.74rem; color: #94a3b8;">
+                <div style="color: #f1f5f9; font-weight: 600;">Shashank Shawak</div>
+                <div style="color: #38bdf8; font-size: 0.72rem; margin-bottom: 4px;">Consultant Architect</div>
+                <a href="https://www.linkedin.com/in/shashankshawak/" target="_blank" style="color: #60a5fa; text-decoration: none; font-weight: 600;">LinkedIn</a> &bull; 
+                <a href="mailto:shashankshawak7@gmail.com" style="color: #cbd5e1; text-decoration: none;">shashankshawak7@gmail.com</a>
+            </div>
+            """,
+            unsafe_allow_html=True
+        )
+
